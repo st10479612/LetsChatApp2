@@ -20,7 +20,7 @@ JUnit - Unit testing framework for validation logic.
 
 How to Run Clone the repository:
 
-Bash git clone Navigate to the directory:
+Bash git clone Navigate to the directory:https://github.com/st10479612/LetsChatApp/tree/main
 
 Bash cd LetsChatApp Compile and Run: Open the project in NetBeans or IntelliJ and run the Chat_app2.java file.
 
