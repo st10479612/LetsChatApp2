@@ -1,31 +1,39 @@
 package com.mycompany.letschatapp;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 
 /**
- * Additional tests for User Authentication Logic
+ * Automated Unit Testing Matrix verifying Part 3 requirements
  */
 public class LetsChatAppV2Test {
-
+    
     @Test
-    public void testCheckUserName_Valid() {
-        // Set up a valid username (under 5 characters and contains an underscore)
-        LetsChatAppV2.username = "Nth_M";
-        assertTrue(LetsChatAppV2.checkUserName(), "Username should be valid if it contains '_' and is <= 5 characters.");
+    public void testFindLongestMessage() {
+        String expected = "Where are you? You are late! I have asked you to be on time.";
+        String actual = LetsChatAppV2.findLongestMessage();
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testCheckUserName_Invalid() {
-        // Set up an invalid username (too long and no underscore)
-        LetsChatAppV2.username = "Nthabiseng";
-        assertFalse(LetsChatAppV2.checkUserName(), "Username should fail if it exceeds 5 characters or lacks an underscore.");
+    public void testSearchByMessageId() {
+        String expected = "It is dinner time !";
+        String actual = LetsChatAppV2.searchByMessageId("0838884567");
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testCheckPasswordComplexity_Success() {
-        // Set up a strong password matching all criteria
-        LetsChatAppV2.password = "SecureP@ss123";
-        assertTrue(LetsChatAppV2.checkPasswordComplexity(), "Password should pass complexity checks.");
+    public void testSearchByRecipient() {
+        String expected = "\"Where are you? You are late! I have asked you to be on time.\" \"Ok, I am leaving without you.\"";
+        String actual = LetsChatAppV2.searchByRecipient("+27838884567");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testDeleteMessageByHash() {
+        String expected = "Message: \"Where are you? You are late! I have asked you to be on time.\" successfully deleted.";
+        String actual = LetsChatAppV2.deleteMessageByHash("HSH882");
+        assertEquals(expected, actual);
     }
 }
